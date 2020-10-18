@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/llMain"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edt_api"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:autofillHints="@string/enter_api_key"
+        android:hint="@string/enter_api_key"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_api"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccent"
+        android:padding="5dp"
+        android:text="@string/enter_api_key"
+        android:textColor="@android:color/background_light" />
+</LinearLayout>
