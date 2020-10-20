@@ -1,4 +1,4 @@
-package com.mockdroid.cryptocurrency.di
+package com.mockdroid.cryptocurrency.di.module
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

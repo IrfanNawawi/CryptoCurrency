@@ -1,9 +1,9 @@
 package com.mockdroid.cryptocurrency
 
 import android.app.Application
-import com.mockdroid.cryptocurrency.di.DaggerSharedComponent
-import com.mockdroid.cryptocurrency.di.SharedComponent
-import com.mockdroid.cryptocurrency.di.SharedModule
+import com.mockdroid.cryptocurrency.di.component.DaggerSharedComponent
+import com.mockdroid.cryptocurrency.di.component.SharedComponent
+import com.mockdroid.cryptocurrency.di.module.SharedModule
 
 class BaseApp : Application() {
 
@@ -16,7 +16,7 @@ class BaseApp : Application() {
             .build()
     }
 
-    fun getSharedComponent(): SharedComponent{
+    fun getSharedComponent(): SharedComponent {
         return component
     }
 }

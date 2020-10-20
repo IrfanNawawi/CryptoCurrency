@@ -23,6 +23,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -35,8 +42,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    def nav_version = "2.1.0"
-    def dagger = "2.24"
+    def nav_version = "2.3.1"
+    def dagger = "2.27"
+    def retrofit_version = "2.9.0"
+    def converter_moshi = "2.4.0"
+    def rxjava = "3.0.7"
+    def rxAndroid = "3.0.0"
+    def lifecycle_version = "2.2.0"
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -47,5 +59,17 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$dagger"
     kapt "com.google.dagger:dagger-android-processor:$dagger"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$converter_moshi"
+
+    //RxJava
+    implementation "io.reactivex.rxjava3:rxandroid:$rxAndroid"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava"
+
+    //LifeCycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
 }

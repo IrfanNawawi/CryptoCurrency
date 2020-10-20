@@ -1,11 +1,12 @@
-package com.mockdroid.cryptocurrency
+package com.mockdroid.cryptocurrency.ui.activity
 
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.mockdroid.cryptocurrency.ui.HomeActivity
+import com.mockdroid.cryptocurrency.BaseApp
+import com.mockdroid.cryptocurrency.R
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

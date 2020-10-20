@@ -1,7 +1,7 @@
-package com.mockdroid.cryptocurrency.ui
+package com.mockdroid.cryptocurrency.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
