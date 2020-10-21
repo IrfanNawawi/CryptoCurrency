@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import com.mockdroid.cryptocurrency.BaseApp
 import com.mockdroid.cryptocurrency.R
 import com.mockdroid.cryptocurrency.databinding.FragmentAccountBinding
@@ -59,9 +60,18 @@ class Account : Fragment() {
             }
         })
 
-        accountViewModel.getWithDrawCoinRepoLiveData(apiKey, "100", "3NkGVwyGMVD7ZxZspELiT6iVvDb28vbENw")
-            .observe(viewLifecycleOwner, Observer { data ->
-                Log.e("Account", data.status)
-            })
+        fragmentAccountBinding.btnSent.setOnClickListener {
+            if (fragmentAccountBinding.edtAddress.text.isEmpty() && fragmentAccountBinding.edtAmount.text.isEmpty()) {
+                Snackbar.make(it, "Enter Address or Amount", Snackbar.LENGTH_LONG).show()
+            } else {
+                accountViewModel.getWithDrawCoinRepoLiveData(
+                    apiKey,
+                    fragmentAccountBinding.edtAmount.text.toString(),
+                    fragmentAccountBinding.edtAddress.text.toString()
+                ).observe(viewLifecycleOwner, Observer { data ->
+                    Log.e("Account", data.status)
+                })
+            }
+        }
     }
 }
