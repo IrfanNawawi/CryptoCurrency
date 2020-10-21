@@ -3,6 +3,7 @@ package com.mockdroid.cryptocurrency.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.mockdroid.cryptocurrency.di.ViewModelKey
+import com.mockdroid.cryptocurrency.ui.viewmodel.AccountViewModel
 import com.mockdroid.cryptocurrency.ui.viewmodel.HomeViewModel
 import com.mockdroid.cryptocurrency.ui.viewmodel.ViewModelFactory
 import dagger.Binds
@@ -15,7 +16,12 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
-    abstract fun bindViewModule(homeViewModel: HomeViewModel): ViewModel
+    abstract fun bindViewHomeModule(homeViewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AccountViewModel::class)
+    abstract fun bindViewAmountModule(accountViewModel: AccountViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
