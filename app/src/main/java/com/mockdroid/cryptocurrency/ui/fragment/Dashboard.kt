@@ -13,11 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.mockdroid.cryptocurrency.BaseApp
 import com.mockdroid.cryptocurrency.R
-import com.mockdroid.cryptocurrency.databinding.FragmentHomeBinding
-import com.mockdroid.cryptocurrency.ui.viewmodel.HomeViewModel
+import com.mockdroid.cryptocurrency.databinding.FragmentDashboardBinding
+import com.mockdroid.cryptocurrency.ui.viewmodel.DashboardViewModel
 import javax.inject.Inject
 
-class Home : Fragment() {
+class Dashboard : Fragment() {
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -25,8 +26,8 @@ class Home : Fragment() {
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
-    private lateinit var homeViewModel: HomeViewModel
-    private lateinit var fragmentHomeBinding: FragmentHomeBinding
+    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var fragmentDashboardBinding: FragmentDashboardBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,35 +35,36 @@ class Home : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        (activity?.application as BaseApp)
-            .getSharedComponent()
-            .inject(this)
+        (activity?.application as BaseApp).getSharedComponent().inject(this)
 
-        fragmentHomeBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        return fragmentHomeBinding.root
+        fragmentDashboardBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, container, false)
+
+        return fragmentDashboardBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val apikey = sharedPreferences.getString("APIKEY", "000000") ?: ""
 
-        homeViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
+        dashboardViewModel = ViewModelProviders.of(this, viewModelFactory).get(DashboardViewModel::class.java)
 
-        homeViewModel.isLoading().observe(viewLifecycleOwner, Observer { isLoading ->
+        dashboardViewModel.isLoading().observe(viewLifecycleOwner, Observer { isLoading ->
             if (isLoading) {
-                fragmentHomeBinding.progresBar.visibility = View.VISIBLE
+                fragmentDashboardBinding.progresBar.visibility = View.VISIBLE
             } else {
-                fragmentHomeBinding.progresBar.visibility = View.INVISIBLE
+                fragmentDashboardBinding.progresBar.visibility = View.INVISIBLE
             }
         })
 
-        homeViewModel.isError().observe(viewLifecycleOwner, Observer { error ->
+        dashboardViewModel.isError().observe(viewLifecycleOwner, Observer { error ->
             Log.e("Home", error.toString())
         })
 
-        homeViewModel.getBalanceMutableliveData(apikey).observe(viewLifecycleOwner, Observer { data ->
-            fragmentHomeBinding.balance = data
+        dashboardViewModel.getBalanceMutableliveData(apikey).observe(viewLifecycleOwner, Observer { data ->
+            fragmentDashboardBinding.balance = data
         })
+
+
     }
 }

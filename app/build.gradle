@@ -49,6 +49,7 @@ dependencies {
     def rxjava = "3.0.7"
     def rxAndroid = "3.0.0"
     def lifecycle_version = "2.2.0"
+    def GraphChart = "3.1.0"
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -72,4 +73,6 @@ dependencies {
     //LifeCycle
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
+    //Graph
+    implementation "com.github.PhilJay:MPAndroidChart:$GraphChart"
 }

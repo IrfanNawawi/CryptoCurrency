@@ -1,11 +1,12 @@
 package com.mockdroid.cryptocurrency.model
 
+
 data class Balance(
     val status: String,
-    val data: Data
+    val data: DataBalance
 )
 
-data class Data(
+data class DataBalance(
     val error_message: String?,
     val network: String?,
     val available_balance: String?,

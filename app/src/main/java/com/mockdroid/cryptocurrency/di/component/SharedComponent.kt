@@ -6,7 +6,7 @@ import com.mockdroid.cryptocurrency.di.module.SharedModule
 import com.mockdroid.cryptocurrency.ui.activity.MainActivity
 import com.mockdroid.cryptocurrency.ui.fragment.Account
 import com.mockdroid.cryptocurrency.ui.fragment.Balance
-import com.mockdroid.cryptocurrency.ui.fragment.Home
+import com.mockdroid.cryptocurrency.ui.fragment.Dashboard
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 interface SharedComponent {
     fun inject(application: BaseApp)
     fun inject(application: MainActivity)
-    fun inject(fragment: Home)
+    fun inject(fragment: Dashboard)
     fun inject(fragment: Account)
     fun inject(fragment: Balance)
 }

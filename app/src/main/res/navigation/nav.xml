@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.mockdroid.cryptocurrency.ui.fragment.Home"
+        android:name="com.mockdroid.cryptocurrency.ui.fragment.Dashboard"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/action_home_to_account"
             app:destination="@id/account" />
@@ -37,5 +37,13 @@
         <action
             android:id="@+id/action_balance_to_account"
             app:destination="@id/account" />
+        <action
+            android:id="@+id/action_balance_to_stock"
+            app:destination="@id/stock" />
     </fragment>
+    <fragment
+        android:id="@+id/stock"
+        android:name="com.mockdroid.cryptocurrency.ui.fragment.Stock"
+        android:label="fragment_stock"
+        tools:layout="@layout/fragment_stock" />
 </navigation>

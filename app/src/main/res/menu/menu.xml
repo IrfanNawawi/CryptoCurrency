@@ -13,4 +13,8 @@
         android:title="Balance"
         android:icon="@drawable/ic_account_balance"/>
 
+    <item
+        android:id="@+id/stock"
+        android:title="Stock"
+        android:icon="@drawable/ic_call_made"/>
 </menu>

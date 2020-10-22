@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val balanceRepository: BalanceRepository) :
+class DashboardViewModel @Inject constructor(private val balanceRepository: BalanceRepository) :
     ViewModel() {
 
     private val disposable = CompositeDisposable()
@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(private val balanceRepository: BalanceRe
                     isLoading.value = false
                 }, { error ->
                     isLoading.value = false
-                    Log.e("Home", error.toString())
+                    Log.e("Dashboard", error.toString())
                 })
         )
     }
